@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/container-queries";
+
+@theme {
+  --color-error-container: #ffdad6;
+  --color-on-primary-container: #778598;
+  --color-on-secondary-fixed: #002117;
+  --color-primary-fixed-dim: #bac8dc;
+  --color-surface-container-highest: #e2e2e3;
+  --color-on-secondary: #ffffff;
+  --color-primary-fixed: #d6e4f9;
+  --color-on-secondary-container: #306d58;
+  --color-on-error-container: #93000a;
+  --color-surface-container-lowest: #ffffff;
+  --color-secondary-fixed-dim: #95d3ba;
+  --color-tertiary-fixed-dim: #ecc070;
+  --color-secondary-fixed: #b0f0d6;
+  --color-inverse-primary: #bac8dc;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-fixed: #ffdea6;
+  --color-on-error: #ffffff;
+  --color-on-surface-variant: #44474c;
+  --color-surface-container: #eeeeef;
+  --color-secondary-container: #adedd3;
+  --color-on-tertiary-fixed: #271900;
+  --color-surface-container-high: #e8e8e9;
+  --color-outline-variant: #c4c6cc;
+  --color-primary: #000000;
+  --color-surface-bright: #f9f9fa;
+  --color-tertiary: #000000;
+  --color-primary-container: #0f1c2c;
+  --color-surface: #f9f9fa;
+  --color-on-tertiary-container: #a37e35;
+  --color-on-background: #1a1c1d;
+  --color-surface-dim: #dadadb;
+  --color-secondary: #2b6954;
+  --color-surface-container-low: #f3f3f4;
+  --color-surface-variant: #e2e2e3;
+  --color-on-surface: #1a1c1d;
+  --color-on-secondary-fixed-variant: #0b513d;
+  --color-outline: #74777d;
+  --color-on-primary-fixed-variant: #3a4859;
+  --color-tertiary-container: #271900;
+  --color-on-tertiary-fixed-variant: #5e4200;
+  --color-error: #ba1a1a;
+  --color-background: #f9f9fa;
+  --color-on-primary: #ffffff;
+  --color-on-primary-fixed: #0f1c2c;
+  --color-inverse-on-surface: #f0f1f2;
+  --color-surface-tint: #525f71;
+  --color-inverse-surface: #2f3132;
+
+  --font-serif: "Newsreader", serif;
+  --font-sans: "Manrope", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+  --font-headline: "Newsreader", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Common UI Elements mappings just in case they are used where we haven't ported yet */
+  .btn-primary {
+    @apply bg-primary text-on-primary px-8 py-2.5 text-sm font-bold tracking-tight rounded-sm scale-95 active:scale-90 transition-transform duration-200 flex justify-center items-center gap-2;
+  }
+  .btn-secondary {
+    @apply text-secondary border-b-2 border-secondary/30 pb-1 font-bold tracking-widest text-xs uppercase hover:border-secondary transition-all flex justify-center items-center gap-2 bg-transparent;
+  }
+  .input-field {
+    @apply w-full bg-transparent border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-secondary transition-all py-4 placeholder:text-on-surface/20 font-light text-lg;
+  }
+  .card {
+    @apply relative overflow-hidden bg-surface-container-lowest p-8 rounded-lg transition-all duration-500 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.06)];
+  }
+}
