@@ -43,6 +43,18 @@ export default function RequestFlow() {
     setError('');
 
     try {
+      // Check for existing requests to prevent race condition
+      const { data: existingRequests, error: checkError } = await supabase
+        .from('requests')
+        .select('id')
+        .eq('listing_id', id)
+        .in('status', ['pending', 'accepted']);
+
+      if (checkError) throw checkError;
+      if (existingRequests && existingRequests.length > 0) {
+        throw new Error('This piece has already been requested by another curator.');
+      }
+
       // Insert request into Supabase
       const { error: reqError } = await supabase.from('requests').insert({
         seeker_id: user.id,

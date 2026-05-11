@@ -8,6 +8,8 @@ import ListingDetail from './pages/ListingDetail';
 import RequestFlow from './pages/RequestFlow';
 import Profile from './pages/Profile';
 import AuthPage from './pages/AuthPage';
+import MediatorDashboard from './pages/MediatorDashboard';
+import PostNeed from './pages/PostNeed';
 
 function ProtectedRoute({ children }) {
   const { user } = useAuth();
@@ -24,19 +26,25 @@ function AppRoutes() {
         <Route path="/" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
           <Route index element={<Home />} />
           <Route path="add" element={<AddListing />} />
+          <Route path="post-need" element={<PostNeed />} />
           <Route path="listing/:id" element={<ListingDetail />} />
           <Route path="request/:id" element={<RequestFlow />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="mediator" element={<MediatorDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
+import { RoleProvider } from './contexts/RoleContext';
+
 function App() {
   return (
     <AuthProvider>
-      <AppRoutes />
+      <RoleProvider>
+        <AppRoutes />
+      </RoleProvider>
     </AuthProvider>
   );
 }

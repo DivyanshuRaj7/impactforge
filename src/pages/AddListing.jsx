@@ -11,7 +11,7 @@ export default function AddListing() {
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(null);
   const [photoFile, setPhotoFile] = useState(null);
-  const { coords, requestLocation } = useGeolocation();
+  const { coords, error: geoError, requestLocation } = useGeolocation();
 
   // Form state
   const [title, setTitle] = useState('');
@@ -35,6 +35,7 @@ export default function AddListing() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!category) return alert("Please select a category.");
+    if (!coords) return alert("Location is required to post a listing. Please enable location permissions.");
     setLoading(true);
 
     try {
@@ -198,9 +199,9 @@ export default function AddListing() {
             {/* Geolocation Notice & Submit */}
             <div className="pt-12 mt-12 border-t border-outline-variant/20">
               <div className="flex items-start gap-4 mb-12">
-                <span className="material-symbols-outlined text-secondary text-xl" data-icon="verified">verified</span>
+                <span className="material-symbols-outlined text-secondary text-xl" data-icon="verified">{geoError ? 'error' : 'verified'}</span>
                 <p className="text-[11px] leading-relaxed text-on-surface-variant uppercase tracking-widest">
-                  {coords ? `Curator location secured: [${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)}]` : 'Acquiring curator coordinates for optimal routing...'}
+                  {coords ? `Curator location secured: [${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)}]` : geoError ? <span className="text-error font-bold">{geoError}</span> : 'Acquiring curator coordinates for optimal routing...'}
                 </p>
               </div>
 

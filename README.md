@@ -1,16 +1,42 @@
-# React + Vite
+# IMPACTFORGE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A hyperlocal, mobile-first web app that connects Donors (giving items), Seekers (requesting items), and Mediators (volunteer couriers) in a community aid ecosystem.
 
-Currently, two official plugins are available:
+## Core Concept
+- **Three personas:** Donor (Arjun), Seeker (Priya), Mediator (Sneha)
+- **Identity Shifter:** Toggle between all three roles seamlessly.
+- **Geotagged Items:** Proximity filter shows only listings within 2km.
+- **Urgency System:** Urgent / 24hrs / Flexible with countdown timers.
+- **Mediators:** Bridge the gap between Donor and Seeker via a Quest Map.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- **Frontend:** React + Vite (TypeScript), React Router DOM, Tailwind CSS
+- **Backend:** Supabase (PostgreSQL, Auth, Storage, Realtime, Edge Functions)
+- **Mapping:** Leaflet.js + React-Leaflet + Leaflet Routing Machine
+- **Forms:** React Hook Form
+- **Icons:** Lucide React
+- **QR Code:** qrcode.react + react-qr-reader
+- **Timers:** date-fns + setInterval
+- **Testing:** Cypress / Playwright
+- **Deployment:** Vercel (GitHub CI/CD)
 
-## React Compiler
+## Features Built
+- Secure Authentication with Supabase
+- Geolocation API with 2km proximity filter
+- Listings feed, add listings with photo uploads (Supabase Storage)
+- Request flow and preset messages
+- Identity switcher to toggle roles (Donor/Seeker/Mediator)
+- Real-time notifications and chat
+- Quest Map with Leaflet.js and live route updates
+- QR verification for pickup and delivery
+- Profile tabs tracking user statistics
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+1. Clone the repository
+2. Run `npm install`
+3. Setup `.env` file with Supabase credentials
+4. Run `npm run dev` to start the local server
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## License
+MIT

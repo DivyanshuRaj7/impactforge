@@ -11,7 +11,7 @@ export default function Home() {
   const [urgencyFilter, setUrgencyFilter] = useState('all');
   const [listings, setListings] = useState([]);
   const [fetching, setFetching] = useState(true);
-  const { coords, loading: geoLoading, requestLocation } = useGeolocation();
+  const { coords, loading: geoLoading, error: geoError, requestLocation } = useGeolocation();
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -99,8 +99,14 @@ export default function Home() {
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-32">
-        {fetching ? (
+        {fetching || (filterMode === 'nearby' && geoLoading) ? (
           <div className="col-span-full flex justify-center py-24"><Loader2 size={32} className="animate-spin text-secondary" /></div>
+        ) : filterMode === 'nearby' && geoError ? (
+          <div className="col-span-full text-center py-20 bg-error/10 rounded-lg border border-error/20">
+            <h3 className="font-serif text-2xl mb-3 text-error">Location Access Required</h3>
+            <p className="font-body text-sm text-on-surface-variant/80 max-w-md mx-auto">{geoError}</p>
+            <button onClick={() => requestLocation()} className="mt-6 px-6 py-2 bg-error text-white text-sm font-bold uppercase tracking-widest rounded-sm">Try Again</button>
+          </div>
         ) : filteredListings.length === 0 ? (
           <div className="col-span-full text-center py-20 bg-surface-container-low rounded-lg">
             <h3 className="font-serif text-3xl mb-2 text-on-surface/40">No pieces available</h3>
