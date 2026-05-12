@@ -40,5 +40,3 @@ A hyperlocal, website that connects Donors (giving items), Seekers (requesting i
 3. Setup `.env` file with Supabase credentials
 4. Run `npm run dev` to start the local server
 
-## License
-MIT
