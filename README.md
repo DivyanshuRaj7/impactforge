@@ -1,6 +1,6 @@
 # IMPACTFORGE
 
-A hyperlocal, mobile-first web app that connects Donors (giving items), Seekers (requesting items), and Mediators (volunteer couriers) in a community aid ecosystem.
+A hyperlocal, website that connects Donors (giving items), Seekers (requesting items), and Mediators (volunteer couriers) in a community aid ecosystem.
 
 - Link: https://impactforge-six.vercel.app/
 
@@ -9,7 +9,7 @@ A hyperlocal, mobile-first web app that connects Donors (giving items), Seekers 
 - **Identity Shifter:** Toggle between all three roles seamlessly.
 - **Geotagged Items:** Proximity filter shows only listings within 2km.
 - **Urgency System:** Urgent / 24hrs / Flexible with countdown timers.
-- **Mediators:** Bridge the gap between Donor and Seeker via a Quest Map.
+- **Mediators:** Bridge the gap between Donor and Seeker via a Quest Map. (pending)
 
 ## Tech Stack
 - **Frontend:** React + Vite (TypeScript), React Router DOM, Tailwind CSS
@@ -17,8 +17,8 @@ A hyperlocal, mobile-first web app that connects Donors (giving items), Seekers 
 - **Mapping:** Leaflet.js + React-Leaflet + Leaflet Routing Machine
 - **Forms:** React Hook Form
 - **Icons:** Lucide React
-- **QR Code:** qrcode.react + react-qr-reader
-- **Timers:** date-fns + setInterval
+- **QR Code:** qrcode.react + react-qr-reader (pending)
+- **Timers:** date-fns + setInterval (pending)
 - **Testing:** Cypress / Playwright
 - **Deployment:** Vercel (GitHub CI/CD)
 
@@ -29,8 +29,8 @@ A hyperlocal, mobile-first web app that connects Donors (giving items), Seekers 
 - Request flow and preset messages
 - Identity switcher to toggle roles (Donor/Seeker/Mediator)
 - Real-time notifications and chat
-- Quest Map with Leaflet.js and live route updates
-- QR verification for pickup and delivery
+- Quest Map with Leaflet.js and live route updates (pending)
+- QR verification for pickup and delivery (pending)
 - Profile tabs tracking user statistics
 
 ## Getting Started
